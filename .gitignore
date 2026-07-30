@@ -1,6 +1,23 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+dist/
+build/
 .env
-.venv/
-node_modules/
-*.log
+.env.local
+
+# API keys (never commit real keys)
+*.key
+secrets.*
+config.local.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store

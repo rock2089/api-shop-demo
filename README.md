@@ -1,172 +1,175 @@
-# 🏪 API Shop Demo — Affordable AI API Access
+# API Shop Demo 🚀
 
-> **Pay once, use any model.** No subscription. Free trial. OpenAI-compatible.
+> **Affordable AI API Access — DeepSeek V4, Kimi K2, and more. Pay once, use any model.**
 
-[![API Shop](https://img.shields.io/badge/API%20Shop-shop.pricepulseapi.site-blue)](https://shop.pricepulseapi.site)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://shop.pricepulseapi.site/demo)
-[![Models](https://img.shields.io/badge/Models-DeepSeek%20%7C%20Kimi-orange)](https://shop.pricepulseapi.site)
-
----
-
-## 🚀 Why API Shop?
-
-| Problem | Solution |
-|---------|----------|
-| ❌ Monthly subscriptions | ✅ Pay once, use anytime |
-| ❌ Multiple accounts for different models | ✅ One key for all models |
-| ❌ Complex per-token billing | ✅ Simple credit packs |
-| ❌ No way to try before buying | ✅ 10K free trial tokens |
+[![API Shop](https://img.shields.io/badge/API%20Shop-Live-brightgreen)](https://shop.pricepulseapi.site)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Models](https://img.shields.io/badge/models-DeepSeek%20%7C%20Kimi-purple)]()
 
 ---
 
-## ⚡ Quick Start (30 seconds)
+## What is API Shop?
+
+API Shop provides **cheap, reliable AI API access** with OpenAI-compatible endpoints. Unlike other providers, we offer a **pay-once, top-up-when-needed** model — no monthly subscriptions, no recurring fees.
+
+### Available Models
+
+| Model | Context | Use Case |
+|-------|---------|----------|
+| **DeepSeek V4 Flash** | 128K | Fast, affordable general-purpose chat |
+| **DeepSeek V4 Pro** | 128K | Advanced reasoning & coding |
+| **Kimi K2 (Moonshot)** | 128K | Long-context understanding |
+| **DeepSeek R1-0528** | 128K | Chain-of-thought reasoning |
+
+## Quick Start
 
 ```bash
+# 1. Get your API key from https://shop.pricepulseapi.site
+# 2. Send a request
+
 curl -X POST https://pricepulseapi.site/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer *** \
-  -d '{"model":"deepseek-chat","messages":[{"role":"user","content":"Explain quantum computing in one sentence."}]}'
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "deepseek-v4-flash",
+    "messages": [{"role": "user", "content": "Write a Python function to sort a list"}]
+  }'
 ```
 
----
+## Python Example
 
-## 📦 Available Models
+```python
+import requests
 
-| Model | Best For | Context Window |
-|-------|----------|---------------|
-| `deepseek-chat` | General chat, reasoning, coding | 64K |
-| `deepseek-reasoner` | Complex reasoning, math, logic | 64K |
-| `moonshot-v1-8k` | Chinese content, long-form | 8K |
-| `moonshot-v1-32k` | Long context, research | 32K |
-| `moonshot-v1-128k` | Ultra-long context | 128K |
+API_KEY = "your-api-key-here"
+API_URL = "https://pricepulseapi.site/v1/chat/completions"
 
----
+def chat(prompt, model="deepseek-v4-flash"):
+    response = requests.post(
+        API_URL,
+        headers={
+            "Authorization": f"Bearer {API_KEY}",
+            "Content-Type": "application/json"
+        },
+        json={
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}]
+        }
+    )
+    return response.json()["choices"][0]["message"]["content"]
 
-## 💻 Code Examples
+# Example usage
+print(chat("Explain quantum computing in simple terms"))
+```
 
-### Python (OpenAI SDK — drop-in replacement)
+## OpenAI SDK Compatibility
+
+API Shop is fully compatible with the OpenAI Python SDK:
 
 ```python
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="YOUR_API_KEY",
+    api_key="your-api-key",
     base_url="https://pricepulseapi.site/v1"
 )
 
 response = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[{"role": "user", "content": "Write a Python function to reverse a linked list."}]
+    model="deepseek-v4-pro",
+    messages=[{"role": "user", "content": "Hello!"}]
 )
 
 print(response.choices[0].message.content)
 ```
 
-### Python (requests)
-
-```python
-import requests
-
-response = requests.post(
-    "https://pricepulseapi.site/v1/chat/completions",
-    headers={"Authorization": "Bearer YOUR_API_KEY"},
-    json={
-        "model": "deepseek-chat",
-        "messages": [{"role": "user", "content": "Hello!"}],
-        "temperature": 0.7,
-        "max_tokens": 500
-    }
-)
-print(response.json()["choices"][0]["message"]["content"])
-```
-
-### Node.js
+## Node.js Example
 
 ```javascript
-const response = await fetch("https://pricepulseapi.site/v1/chat/completions", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_API_KEY"
-  },
-  body: JSON.stringify({
-    model: "deepseek-chat",
-    messages: [{ role: "user", content: "Hello!" }]
-  })
-});
-const data = await response.json();
-console.log(data.choices[0].message.content);
-```
+const API_KEY = "your-api-key-here";
+const API_URL = "https://pricepulseapi.site/v1/chat/completions";
 
-### Python Streaming
-
-```python
-import requests, json
-
-response = requests.post(
-    "https://pricepulseapi.site/v1/chat/completions",
-    headers={"Authorization": "Bearer YOUR_API_KEY"},
-    json={
-        "model": "deepseek-chat",
-        "messages": [{"role": "user", "content": "Write a short story."}],
-        "stream": True
+async function chat(prompt, model = "deepseek-v4-flash") {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${API_KEY}`,
+      "Content-Type": "application/json"
     },
-    stream=True
-)
+    body: JSON.stringify({
+      model,
+      messages: [{ role: "user", content: prompt }]
+    })
+  });
+  const data = await response.json();
+  return data.choices[0].message.content;
+}
 
-for line in response.iter_lines():
-    if line:
-        line = line.decode("utf-8")
-        if line.startswith("data: ") and line[6:] != "[DONE]":
-            delta = json.loads(line[6:])["choices"][0]["delta"]
-            print(delta.get("content", ""), end="", flush=True)
+// Usage
+chat("Write a haiku about programming").then(console.log);
 ```
 
----
+## Demo Scripts
 
-## 💰 Pricing
+This repo includes working demo scripts in this directory and the [`/examples`](./examples) folder:
 
-| Plan | Tokens | Price | Best For |
-|------|--------|-------|----------|
-| 🎁 **Free Trial** | 10K | **$0** | Testing |
-| 🥉 Starter | 2M | $5 | Hobby projects |
-| 🥈 Pro | 10M | $20 | Side projects |
-| 🥇 Enterprise | 100M | $100 | Production |
+| File | Description |
+|------|-------------|
+| `chat.py` | Basic chat completion in Python |
+| `openai_sdk.py` | Using the official OpenAI SDK |
+| `stream.py` | Streaming responses |
+| `chat.sh` | Bash/curl one-liner |
+| `examples/batch_process.py` | **NEW** — Parallel batch processing for freelancers |
+| `examples/tool_calling.py` | **NEW** — AI agent with function calling |
 
-> 💡 Credits never expire. Top up anytime via WeChat Pay or PayPal.
+## For Freelancers 🧑‍💻
 
----
+API Shop is built by a freelancer, for freelancers. The batch processing demo (`examples/batch_process.py`) shows how to process dozens of AI tasks in parallel — perfect for:
 
-## 🔧 Integration Guide
+- 📝 Translating documents in bulk
+- 📊 Summarizing articles and reports
+- 🏷️ Generating product descriptions
+- 🤖 Building AI-powered automation tools for clients
 
-API Shop uses the standard OpenAI chat completions format. If your app already uses the OpenAI SDK, just change `base_url`:
-
-```python
-# Before (OpenAI)
-client = OpenAI(api_key="sk-...")
-
-# After (API Shop)
-client = OpenAI(
-    api_key="YOUR_API_SHOP_KEY",
-    base_url="https://pricepulseapi.site/v1"
-)
-# Everything else stays the same!
+```bash
+# Process 8 tasks in parallel with just a few lines:
+python examples/batch_process.py
 ```
 
+👉 **Need custom automation? Hire me:** [freelancer.com/get/rocks081](https://www.freelancer.com/get/rocks081?f=give)
+
+## Pricing
+
+💰 **Pay-as-you-go** — Top up any amount, use any model.
+
+| Plan | Price | What You Get |
+|------|-------|--------------|
+| **Starter** | $2 | 2M tokens — try all models |
+| **Standard** | $5 | 6M tokens — best value |
+| **Pro** | $10 | 15M tokens — heavy usage |
+
+👉 **Visit [shop.pricepulseapi.site](https://shop.pricepulseapi.site) to get started.**
+
 ---
 
-## 🔗 Links
+## Why API Shop?
 
-- 🏪 **API Shop**: [shop.pricepulseapi.site](https://shop.pricepulseapi.site)
-- 📝 **Live Demo**: [shop.pricepulseapi.site/demo](https://shop.pricepulseapi.site/demo)
-- 👨‍💻 **Freelancer**: [freelancer.com/get/rocks081](https://www.freelancer.com/get/rocks081?f=give)
-
----
-
-## 📄 License
-
-MIT — use it however you want.
+- 🔌 **OpenAI-compatible** — Drop-in replacement for any OpenAI SDK project
+- 💸 **No monthly fees** — Pay once, use until your balance runs out
+- 🧠 **Multiple models** — DeepSeek, Kimi K2 in one account
+- 🆓 **Free trial** — Test before you buy
+- ⚡ **Fast inference** — Optimized infrastructure
 
 ---
 
-Built with ❤️ by [@rock2089](https://github.com/rock2089)
+## About the Author
+
+Built by a freelance developer who automates everything with Python. If you need custom automation, web scraping, or AI integration work:
+
+- 🧑‍💻 **Hire me on Freelancer:** [freelancer.com/get/rocks081](https://www.freelancer.com/get/rocks081?f=give)
+- 🐙 **GitHub:** [@rock2089](https://github.com/rock2089)
+
+---
+
+## License
+
+MIT — use freely, attribution appreciated.
