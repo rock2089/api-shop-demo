@@ -6,6 +6,8 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Models](https://img.shields.io/badge/models-DeepSeek%20%7C%20Kimi-purple)]()
 
+[![Hire Me](https://img.shields.io/badge/Freelancer-Hire%20Me-orange)](https://www.freelancer.com/get/rocks081?f=give) [![API Shop](https://img.shields.io/badge/API%20Shop-Get%20Key-green)](https://shop.pricepulseapi.site)
+
 ---
 
 ## What is API Shop?
@@ -107,6 +109,26 @@ async function chat(prompt, model = "deepseek-v4-flash") {
 // Usage
 chat("Write a haiku about programming").then(console.log);
 ```
+
+## LangChain Integration
+
+API Shop is fully compatible with LangChain — use it as a drop-in replacement for OpenAI:
+
+```python
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    model="deepseek-v4-flash",
+    openai_api_key="your-api-key",
+    openai_api_base="https://pricepulseapi.site/v1",
+)
+
+# Chains, agents, RAG — everything works out of the box
+from langchain_core.prompts import ChatPromptTemplate
+chain = ChatPromptTemplate.from_template("{topic}") | llm
+```
+
+👉 See [`examples/langchain_demo.py`](./examples/langchain_demo.py) for full examples (RAG, streaming, agents).
 
 ## Demo Scripts
 
