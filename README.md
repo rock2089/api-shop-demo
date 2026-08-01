@@ -41,7 +41,7 @@ curl -X POST https://pricepulseapi.site/v1/chat/completions \
 ```python
 import requests
 
-API_KEY = "your-api-key-here"
+API_KEY = "your-api-key"
 API_URL = "https://pricepulseapi.site/v1/chat/completions"
 
 def chat(prompt, model="deepseek-v4-flash"):
@@ -85,7 +85,7 @@ print(response.choices[0].message.content)
 ## Node.js Example
 
 ```javascript
-const API_KEY = "your-api-key-here";
+const API_KEY = "your-api-key";
 const API_URL = "https://pricepulseapi.site/v1/chat/completions";
 
 async function chat(prompt, model = "deepseek-v4-flash") {
@@ -110,7 +110,7 @@ chat("Write a haiku about programming").then(console.log);
 
 ## Demo Scripts
 
-This repo includes working demo scripts in this directory and the [`/examples`](./examples) folder:
+This repo includes 12 working demo scripts — from basic chat to full freelancer automation:
 
 | File | Description |
 |------|-------------|
@@ -118,20 +118,33 @@ This repo includes working demo scripts in this directory and the [`/examples`](
 | `openai_sdk.py` | Using the official OpenAI SDK |
 | `stream.py` | Streaming responses |
 | `chat.sh` | Bash/curl one-liner |
-| `examples/batch_process.py` | **NEW** — Parallel batch processing for freelancers |
-| `examples/tool_calling.py` | **NEW** — AI agent with function calling |
+| **examples/** | |
+| `examples/batch_process.py` | Parallel batch processing (8 tasks, thread pool) |
+| `examples/tool_calling.py` | AI agent with function calling |
+| `examples/langchain_demo.py` | LangChain integration (RAG, chains, agents) |
+| `examples/scraper_ai_demo.py` | Web scraping + AI analysis combo |
+| `examples/freelancer_proposals.py` | **NEW** — AI proposal generator: cover letters, pricing, timelines |
+| `examples/model_comparison.py` | Compare output across models |
+| `examples/streaming_chat.py` | Real-time streaming demo |
+| `examples/basic_chat.py` | Minimal Python chat example |
+| `examples/nodejs_chat.js` | Node.js fetch example |
 
 ## For Freelancers 🧑‍💻
 
-API Shop is built by a freelancer, for freelancers. The batch processing demo (`examples/batch_process.py`) shows how to process dozens of AI tasks in parallel — perfect for:
+API Shop is built by a freelancer, for freelancers. Check out these demos designed for real freelancing workflows:
 
-- 📝 Translating documents in bulk
-- 📊 Summarizing articles and reports
-- 🏷️ Generating product descriptions
-- 🤖 Building AI-powered automation tools for clients
+| Demo | Use It For |
+|------|------------|
+| `freelancer_proposals.py` | **Generate winning proposals** — cover letters, price estimates, timelines, client questions |
+| `batch_process.py` | Process dozens of AI tasks in parallel — translations, summaries, product descriptions |
+| `scraper_ai_demo.py` | Scrape websites + AI analysis — competitor research, lead generation |
+| `tool_calling.py` | Build AI agents that can use tools — automate client workflows |
 
 ```bash
-# Process 8 tasks in parallel with just a few lines:
+# Generate a proposal in seconds:
+python examples/freelancer_proposals.py
+
+# Process 8 tasks in parallel:
 python examples/batch_process.py
 ```
 
