@@ -8,6 +8,16 @@
 
 ---
 
+## 🆕 What's New
+
+**AI SQL Generator** — Convert natural language to SQL queries. Type what you want in plain English, get production-ready SQL with comments and indexing hints. [Try it →](examples/sql_generator.py)
+
+```bash
+python examples/sql_generator.py "top 10 customers by total spend last month"
+```
+
+---
+
 ## What is API Shop?
 
 API Shop provides **cheap, reliable AI API access** with OpenAI-compatible endpoints. Unlike other providers, we offer a **pay-once, top-up-when-needed** model — no monthly subscriptions, no recurring fees.
@@ -41,7 +51,7 @@ curl -X POST https://pricepulseapi.site/v1/chat/completions \
 ```python
 import requests
 
-API_KEY = "your-api-key"
+API_KEY = "your-api-key-here"
 API_URL = "https://pricepulseapi.site/v1/chat/completions"
 
 def chat(prompt, model="deepseek-v4-flash"):
@@ -110,7 +120,7 @@ chat("Write a haiku about programming").then(console.log);
 
 ## Demo Scripts
 
-This repo includes 12 working demo scripts — from basic chat to full freelancer automation:
+This repo includes 13 working demo scripts — from basic chat to developer tools and freelancer automation:
 
 | File | Description |
 |------|-------------|
@@ -123,11 +133,33 @@ This repo includes 12 working demo scripts — from basic chat to full freelance
 | `examples/tool_calling.py` | AI agent with function calling |
 | `examples/langchain_demo.py` | LangChain integration (RAG, chains, agents) |
 | `examples/scraper_ai_demo.py` | Web scraping + AI analysis combo |
-| `examples/freelancer_proposals.py` | **NEW** — AI proposal generator: cover letters, pricing, timelines |
+| `examples/freelancer_proposals.py` | AI proposal generator: cover letters, pricing, timelines |
+| `examples/sql_generator.py` | **NEW** — Natural language to SQL with comments & index hints |
 | `examples/model_comparison.py` | Compare output across models |
 | `examples/streaming_chat.py` | Real-time streaming demo |
 | `examples/basic_chat.py` | Minimal Python chat example |
 | `examples/nodejs_chat.js` | Node.js fetch example |
+
+## Developer Tools 🛠️
+
+Practical AI-powered utilities you can drop into your workflow:
+
+| Tool | What It Does |
+|------|-------------|
+| `sql_generator.py` | **English → SQL** — Type "users who churned last month" → get a JOIN query with indexes |
+| `tool_calling.py` | **AI Agents** — Give your AI access to APIs, databases, and external tools |
+| `batch_process.py` | **Parallel Processing** — Run 8+ AI tasks simultaneously via thread pool |
+
+```bash
+# Generate SQL from plain English:
+python examples/sql_generator.py "monthly revenue by region, year-over-year comparison"
+
+# Build an AI agent with tool access:
+python examples/tool_calling.py
+
+# Process a batch of tasks in parallel:
+python examples/batch_process.py
+```
 
 ## For Freelancers 🧑‍💻
 
@@ -139,13 +171,14 @@ API Shop is built by a freelancer, for freelancers. Check out these demos design
 | `batch_process.py` | Process dozens of AI tasks in parallel — translations, summaries, product descriptions |
 | `scraper_ai_demo.py` | Scrape websites + AI analysis — competitor research, lead generation |
 | `tool_calling.py` | Build AI agents that can use tools — automate client workflows |
+| `sql_generator.py` | Write SQL queries from plain English — deliver data work faster |
 
 ```bash
 # Generate a proposal in seconds:
 python examples/freelancer_proposals.py
 
-# Process 8 tasks in parallel:
-python examples/batch_process.py
+# Convert requirements to SQL instantly:
+python examples/sql_generator.py "find duplicate orders placed within 5 minutes"
 ```
 
 👉 **Need custom automation? Hire me:** [freelancer.com/get/rocks081](https://www.freelancer.com/get/rocks081?f=give)
