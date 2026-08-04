@@ -10,6 +10,13 @@
 
 ## 🆕 What's New
 
+**🖥️ Web Chat Demo** — A beautiful Streamlit-powered chat UI with streaming, model switching, cost tracking, and chat export. [Try it →](examples/streamlit_chat.py)
+
+```bash
+pip install streamlit
+streamlit run examples/streamlit_chat.py
+```
+
 **AI SQL Generator** — Convert natural language to SQL queries. Type what you want in plain English, get production-ready SQL with comments and indexing hints. [Try it →](examples/sql_generator.py)
 
 ```bash
@@ -134,7 +141,8 @@ This repo includes 13 working demo scripts — from basic chat to developer tool
 | `examples/langchain_demo.py` | LangChain integration (RAG, chains, agents) |
 | `examples/scraper_ai_demo.py` | Web scraping + AI analysis combo |
 | `examples/freelancer_proposals.py` | AI proposal generator: cover letters, pricing, timelines |
-| `examples/sql_generator.py` | **NEW** — Natural language to SQL with comments & index hints |
+| `examples/streamlit_chat.py` | **NEW** 🖥️ — Web chat UI with streaming, model switch, cost tracking |
+| `examples/sql_generator.py` | Natural language to SQL with comments & index hints |
 | `examples/model_comparison.py` | Compare output across models |
 | `examples/streaming_chat.py` | Real-time streaming demo |
 | `examples/basic_chat.py` | Minimal Python chat example |
@@ -146,6 +154,7 @@ Practical AI-powered utilities you can drop into your workflow:
 
 | Tool | What It Does |
 |------|-------------|
+| `streamlit_chat.py` | **🖥️ Web Chat** — Full chat UI with streaming, 4 models, cost tracking, chat export |
 | `sql_generator.py` | **English → SQL** — Type "users who churned last month" → get a JOIN query with indexes |
 | `tool_calling.py` | **AI Agents** — Give your AI access to APIs, databases, and external tools |
 | `batch_process.py` | **Parallel Processing** — Run 8+ AI tasks simultaneously via thread pool |
