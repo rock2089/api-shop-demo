@@ -10,6 +10,12 @@
 
 ## 🆕 What's New
 
+**🧪 AI Unit Test Generator** — Drop in any Python source file and get production-ready pytest tests. Detects functions, classes, edge cases, and generates comprehensive test suites. [Try it →](examples/unit_test_generator.py)
+
+```bash
+python examples/unit_test_generator.py your_code.py tests/test_your_code.py
+```
+
 **🖥️ Web Chat Demo** — A beautiful Streamlit-powered chat UI with streaming, model switching, cost tracking, and chat export. [Try it →](examples/streamlit_chat.py)
 
 ```bash
@@ -46,7 +52,7 @@ API Shop provides **cheap, reliable AI API access** with OpenAI-compatible endpo
 
 curl -X POST https://pricepulseapi.site/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Authorization: Bearer *** \
   -d '{
     "model": "deepseek-v4-flash",
     "messages": [{"role": "user", "content": "Write a Python function to sort a list"}]
@@ -58,7 +64,7 @@ curl -X POST https://pricepulseapi.site/v1/chat/completions \
 ```python
 import requests
 
-API_KEY = "your-api-key-here"
+API_KEY="***"
 API_URL = "https://pricepulseapi.site/v1/chat/completions"
 
 def chat(prompt, model="deepseek-v4-flash"):
@@ -102,7 +108,7 @@ print(response.choices[0].message.content)
 ## Node.js Example
 
 ```javascript
-const API_KEY = "your-api-key";
+const API_KEY="***";
 const API_URL = "https://pricepulseapi.site/v1/chat/completions";
 
 async function chat(prompt, model = "deepseek-v4-flash") {
@@ -127,7 +133,7 @@ chat("Write a haiku about programming").then(console.log);
 
 ## Demo Scripts
 
-This repo includes 13 working demo scripts — from basic chat to developer tools and freelancer automation:
+This repo includes 14 working demo scripts — from basic chat to developer tools and freelancer automation:
 
 | File | Description |
 |------|-------------|
@@ -141,6 +147,7 @@ This repo includes 13 working demo scripts — from basic chat to developer tool
 | `examples/langchain_demo.py` | LangChain integration (RAG, chains, agents) |
 | `examples/scraper_ai_demo.py` | Web scraping + AI analysis combo |
 | `examples/freelancer_proposals.py` | AI proposal generator: cover letters, pricing, timelines |
+| `examples/unit_test_generator.py` | **NEW** 🧪 — Auto-generate pytest tests from source code |
 | `examples/streamlit_chat.py` | **NEW** 🖥️ — Web chat UI with streaming, model switch, cost tracking |
 | `examples/sql_generator.py` | Natural language to SQL with comments & index hints |
 | `examples/model_comparison.py` | Compare output across models |
@@ -154,12 +161,16 @@ Practical AI-powered utilities you can drop into your workflow:
 
 | Tool | What It Does |
 |------|-------------|
+| `unit_test_generator.py` | **🧪 Test Gen** — Auto-generate pytest tests: edge cases, mocks, fixtures |
 | `streamlit_chat.py` | **🖥️ Web Chat** — Full chat UI with streaming, 4 models, cost tracking, chat export |
 | `sql_generator.py` | **English → SQL** — Type "users who churned last month" → get a JOIN query with indexes |
 | `tool_calling.py` | **AI Agents** — Give your AI access to APIs, databases, and external tools |
 | `batch_process.py` | **Parallel Processing** — Run 8+ AI tasks simultaneously via thread pool |
 
 ```bash
+# Generate unit tests from source code:
+python examples/unit_test_generator.py your_module.py
+
 # Generate SQL from plain English:
 python examples/sql_generator.py "monthly revenue by region, year-over-year comparison"
 
