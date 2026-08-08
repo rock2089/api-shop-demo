@@ -25,6 +25,13 @@ streamlit run examples/streamlit_chat.py
 
 **AI SQL Generator** — Convert natural language to SQL queries. Type what you want in plain English, get production-ready SQL with comments and indexing hints. [Try it →](examples/sql_generator.py)
 
+**📣 Content Repurposer** — Paste any content and get it transformed into 6 formats: Twitter threads, LinkedIn posts, newsletters, blog summaries, SEO descriptions, and YouTube scripts. [Try it →](examples/content_repurposer.py)
+
+```bash
+python examples/content_repurposer.py
+```
+
+
 ```bash
 python examples/sql_generator.py "top 10 customers by total spend last month"
 ```
@@ -133,7 +140,7 @@ chat("Write a haiku about programming").then(console.log);
 
 ## Demo Scripts
 
-This repo includes 14 working demo scripts — from basic chat to developer tools and freelancer automation:
+This repo includes 15 working demo scripts — from basic chat to developer tools and freelancer automation:
 
 | File | Description |
 |------|-------------|
@@ -142,6 +149,7 @@ This repo includes 14 working demo scripts — from basic chat to developer tool
 | `stream.py` | Streaming responses |
 | `chat.sh` | Bash/curl one-liner |
 | **examples/** | |
+| `examples/content_repurposer.py` | **NEW** 📣 — Repurpose content into tweets, LinkedIn posts, newsletters, YouTube scripts |
 | `examples/batch_process.py` | Parallel batch processing (8 tasks, thread pool) |
 | `examples/tool_calling.py` | AI agent with function calling |
 | `examples/langchain_demo.py` | LangChain integration (RAG, chains, agents) |
@@ -165,6 +173,7 @@ Practical AI-powered utilities you can drop into your workflow:
 | `streamlit_chat.py` | **🖥️ Web Chat** — Full chat UI with streaming, 4 models, cost tracking, chat export |
 | `sql_generator.py` | **English → SQL** — Type "users who churned last month" → get a JOIN query with indexes |
 | `tool_calling.py` | **AI Agents** — Give your AI access to APIs, databases, and external tools |
+| `content_repurposer.py` | **📣 Content Repurpose** — Turn any text into 6 formats: tweets, LinkedIn, newsletter, YouTube script |
 | `batch_process.py` | **Parallel Processing** — Run 8+ AI tasks simultaneously via thread pool |
 
 ```bash
@@ -191,6 +200,7 @@ API Shop is built by a freelancer, for freelancers. Check out these demos design
 | `batch_process.py` | Process dozens of AI tasks in parallel — translations, summaries, product descriptions |
 | `scraper_ai_demo.py` | Scrape websites + AI analysis — competitor research, lead generation |
 | `tool_calling.py` | Build AI agents that can use tools — automate client workflows |
+| `content_repurposer.py` | **Repurpose content for clients** — blogs → social posts, newsletters, video scripts |
 | `sql_generator.py` | Write SQL queries from plain English — deliver data work faster |
 
 ```bash
